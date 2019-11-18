@@ -3766,6 +3766,15 @@ p.checkout-coupon input[type="submit"] {
 .btn-warning{
     border: 0px;
 }
+.product-details-content{
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+}
+.product-details-img-content{
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+}
+
 
 
 
