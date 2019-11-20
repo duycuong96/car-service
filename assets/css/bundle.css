@@ -1178,6 +1178,7 @@ textarea:focus {
   transition: all 0.4s ease-in-out 0s;
     overflow: hidden;
     z-index: 99;
+    border: 0px;
 }
 .btn-style:hover {
   border: 0 solid #f3a395;
