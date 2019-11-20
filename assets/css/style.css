@@ -3774,7 +3774,15 @@ p.checkout-coupon input[type="submit"] {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
     padding: 50px;
 }
-
+.history-car{
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    padding: 40px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.history-car img{
+    width: 100%;
+}
 
 
 
