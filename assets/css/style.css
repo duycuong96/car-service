@@ -3783,6 +3783,10 @@ p.checkout-coupon input[type="submit"] {
 .history-car img{
     width: 100%;
 }
+.img-comment{
+    width: 100%;
+    border-radius: 50%;
+}
 
 
 
