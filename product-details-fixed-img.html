@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="assets/css/bundle.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script> -->
+    <link href="https://thichchiase.com/demo/date-range-picker/Date%20range%20picker%20sample_files/datepicker.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -205,8 +206,10 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Ngày nhận xe</label>
-                                        <input class="form-control" type="date">
+                                        <label>Thời gian bắt đầu:</label>
+                                      
+                                        <input type="text" id="timeCheckIn" class="form-control" name="start_time" value="2019-12-03">
+                                        <!-- <small id="emailHelp2" class="form-text text-muted">Validate</small> -->
                                     </div>
                                     <div class="form-group">
                                         <label for="">Ngày trả xe</label>
@@ -438,7 +441,39 @@
 
 
     <!-- all js here -->
-    <script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="https://thichchiase.com/demo/date-range-picker/Date%20range%20picker%20sample_files/jquery.min.js"></script>
+    <!-- <script src="https://thichchiase.com/demo/date-range-picker/Date%20range%20picker%20sample_files/bootstrap.min.js"></script> -->
+    <script src="https://thichchiase.com/demo/date-range-picker/Date%20range%20picker%20sample_files/bootstrap-datepicker.js"></script>
+<!-- end footer -->
+<script>
+    $(function() {
+        'use strict';
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+        var checkin = $('#timeCheckIn').datepicker({
+            onRender: function(date) {
+                return date.valueOf() < now.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function(ev) {
+            if (ev.date.valueOf() > checkout.date.valueOf()) {
+                var newDate = new Date(ev.date)
+                newDate.setDate(newDate.getDate() + 1);
+                checkout.setValue(newDate);
+            }
+            checkin.hide();
+            $('#timeCheckOut')[0].focus();
+        }).data('datepicker');
+        var checkout = $('#timeCheckOut').datepicker({
+            onRender: function(date) {
+                return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+            }
+        }).on('changeDate', function(ev) {
+            checkout.hide();
+        }).data('datepicker');
+    });
+</script>
+    <!-- <script src="assets/js/vendor/jquery-1.12.0.min.js"></script> -->
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>
